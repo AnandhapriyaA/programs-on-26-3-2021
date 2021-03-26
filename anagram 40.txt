@@ -1,0 +1,37 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string1");
+		String str1 = scan.nextLine();
+		System.out.println("enter string2");
+		String str2 = scan.nextLine();
+		getAnagram(str1, str2);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int getAnagram(String string1, String string2) {
+		String s1 = string1.replaceAll("\\s", "");
+		String s2 = string2.replaceAll("\\s", "");
+		boolean status = true;
+		if (s1.length() != s2.length()) {
+			status = false;
+		} else {
+			char[] ArrayS1 = s1.toLowerCase().toCharArray();
+			char[] ArrayS2 = s2.toLowerCase().toCharArray();
+			Arrays.sort(ArrayS1);
+			Arrays.sort(ArrayS2);
+			status = Arrays.equals(ArrayS1, ArrayS2);
+		}
+		if (status) {
+			System.out.println("Anagrams");
+			return 1;
+		} else {
+			System.out.println("Not Anagrams");
+			return 2;
+		}
+	}
+}

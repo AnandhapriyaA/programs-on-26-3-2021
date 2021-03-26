@@ -1,0 +1,22 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter date");
+		String date = scan.nextLine();
+		getDay(date);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static String getDay(String date1) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("EEEEE");
+		Date date = sdf.parse(date1);
+		String result = sdf1.format(date);
+		System.out.println(result);
+		return result;
+	}
+}

@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter reading1");
+		String read1 = scan.nextLine();
+		System.out.println("enter reading2");
+		String read2= scan.nextLine();
+		calculateMeterReading(read1,read2);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int calculateMeterReading(String read1, String read2) {
+		String[] before = read1.split("CE");
+		String[] after = read2.split("CE");
+		int Difference = (Integer.parseInt(after[1]) - Integer.parseInt(before[1])) * 4;
+		System.out.println(Difference);
+		return Difference;
+	}
+}

@@ -1,0 +1,24 @@
+
+import java.util.Scanner;
+
+public class mains extends UserMainCode {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter string");
+		String string = scan.nextLine();
+		check(string);
+		scan.close();
+	}
+}
+class UserMainCode {
+	static int check(String string) {
+		int result = 0;
+		String[] words = string.split(" ");
+		if (words[0].equals(words[words.length - 1])) {
+			result = words[0].length();
+		} else
+			result = (words[0].length() + words[words.length - 1].length());
+		System.out.println(result);
+		return result;
+	}
+}
